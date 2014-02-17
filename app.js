@@ -6,8 +6,8 @@ function Login()
 		   	    var loginButton = document.getElementById('loginButton');
 		   	    loginButton.parentNode.removeChild(loginButton);
 		   	    var message_span = document.getElementById('topMessageSpan');
-		   	    message_span.innerHTML="Fetching friends information.....";
-                console.log(response.authResponse.userID)
+		   	    message_span.innerHTML="Movies liked by You and Your friends";
+            getAllMoviesOfUser(respone.authResponse.id)
 
   			} else
   			{
@@ -16,3 +16,11 @@ function Login()
 		 },{scope: 'email,user_friends'});
 
  }
+function getAllMoviesOfUser(id) {
+  FB.api('/'+id+'/friends', function(response) {
+          console.log(response.data[227].id)
+          FB.api('/'+response.data[227].id+'/movies',function(resp){
+          console.log(resp.data)
+          })
+        })
+}
