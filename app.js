@@ -7,7 +7,7 @@ function Login()
 		   	    loginButton.parentNode.removeChild(loginButton);
 		   	    var message_span = document.getElementById('topMessageSpan');
 		   	    message_span.innerHTML="Fetching friends information.....";
-                console.log("User authorised")
+                console.log(response.authResponse.userID)
 
   			} else
   			{
