@@ -20,8 +20,6 @@ function Login()
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/friends', function(response) {
             console.log(response.data[227].id)
-          FB.api('/'+response.data[227].id+'/movies',function(resp){
-          console.log(resp.data)
-          })
+         
         })
 }
