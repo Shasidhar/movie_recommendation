@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Your android friends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="app.js"></script>
+    <style type="text/css">
+        #topMessage{
+        text-align: center;
+        font-size: 40;
+        color: green;
+        font-style: italic;
+        }
+        .friendDiv {
+        margin-bottom: 3%;
+        }
+        #loginButton{
+        margin-top: 45%;
+        }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+    appId      : '351669804975495',                        // App ID from the app dashboard
+    status     : true,                                 // Check Facebook Login status
+    xfbml      : true                                  // Look for social plugins on the page
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+    };
+
+    // Load the SDK asynchronously
+    (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="col-md-3 col-xs-12"></div>
+<div id="centerDiv" class="col-md-6 col-xs-12">
+    <button id="loginButton" onclick="Login()" class="btn btn-lg btn-primary btn-block">Find my Android Friends</button>
+</div>
+<div class="col-md-3 col-xs-12"></div>
+<div id="topMessage" class="col-md-12 col-xs-12">
+    <span id="topMessageSpan"></span>
+</div>
+<div class="row">
+    <div id="friends" class="col-md-12 col-xs-12">
+    </div>
+    </div>
+</body>
+</html>
