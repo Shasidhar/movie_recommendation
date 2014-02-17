@@ -7,6 +7,7 @@ function Login()
 		   	    loginButton.parentNode.removeChild(loginButton);
 		   	    var message_span = document.getElementById('topMessageSpan');
 		   	    message_span.innerHTML="Movies liked by You and Your friends";
+            console.log(response.authResponse.id)
             getAllMoviesOfUser(response.authResponse.id)
 
   			} else
