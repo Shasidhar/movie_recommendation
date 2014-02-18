@@ -1,3 +1,4 @@
+
 function Login()
   {
     FB.login(function(response) {
@@ -16,10 +17,15 @@ function Login()
      },{scope: 'email,user_friends'});
 
  }
- 
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
-         for(j=0;j<response.length;j++)
+     var totalCount=0; 
+     var totalMovies = response.length;
+     if(totalCount>0) {
+        var message_span = document.getElementById('topMessageSpan');
+        message_span.innerHTML=totalCount+" movies you like";       
+     }
+    for(j=0;j<response.length;j++)
         {
           console.log(j);
           for(k=0;k<response[j].data.length;k++){
