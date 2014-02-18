@@ -57,9 +57,10 @@ function getOnlyEnglishMovies(){
   messagespan.innerHTML="Total movies liked by you and your friends are "+allMovies.length;
   
   for(i=0;i<allMovies.length;i++){
-      var movie = allMovies[i];
+      var movie = JSON.parse(allMovies[i]);
+      
       var name=movie.name;
-               var picture_url = uniqueMovies[0].picture.data.url;
+               var picture_url = movie.picture.data.url;
                var link = movie.link
                var newDiv = document.createElement('div');
                newDiv.className="friendDiv col-md-1 col-xs-4"              
