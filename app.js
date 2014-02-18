@@ -1,4 +1,5 @@
 var allMovies = new Array();
+var validMovies = new Array();
 
 function Login()
   {
@@ -58,7 +59,7 @@ function getOnlyEnglishMovies(){
   
   for(i=0;i<uniqueMovies.length;i++){
       var movie = JSON.parse(uniqueMovies[i]);
-      
+      validMovies.push(movie);
       var name=movie.name;
                var picture_url = movie.picture.data.url;
                var link = movie.link
