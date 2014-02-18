@@ -37,6 +37,11 @@ function getAllMoviesOfUserFriends(id) {
             allMovies.push(userMovies.data[j]);
           }
         }  
-       }    
+       }
+       getOnlyEnglishMovies();
 })
+}
+
+function getOnlyEnglishMovies(){
+  console.log(allMovies[10].name);
 }
