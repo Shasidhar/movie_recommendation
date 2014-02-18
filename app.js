@@ -1,5 +1,5 @@
-var allMovies = new Array(); 
 var movies = new Array();
+var friends = new Array();
 function Login()
 	{
 		FB.login(function(response) {
@@ -21,22 +21,19 @@ function Login()
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=picture.width(100).height(100),link', function(response) {
   for(i=0;i<response.data.length;i++){
-        console.log(response.data[i])
          movies.push(response.data[i])
         }
       })
+   FB.api('/'+id+'/friends', function(response) {
+    for(i=0;i<response.data.length;i++){
+        console.log(response.data[i])
+         friends.push(response.data[i])
+        }
+      })
 
- FB.api('/'+id+'/friends?fields=movies,picture.width(100).height(100),link', function(response) {
-  for(i=0;i<response.data.length;i++){
-    console.log(response.data[i].movies)
-   if(response.data[i].movies!=undefined){
-      if(response.data[i].movies.data!=undefined){
-      console.log(response.data[i].movies.data.length)
-      for(j=0;j<response.data[i].movies.data.length;j++){
-        movies.push(response.data[i].movies.data[j])
-      }
-      }
-    }
-      }
-    }) 
+for(k=0;k<friends.length;k++){
+  FB.api('/'+friends[k].id+'/movies?fields=movies,picture.width(100).height(100),link', function(response) {
+  console.log(response.data)
+  } 
 }
+  
