@@ -50,7 +50,7 @@ function getAllMoviesOfUserFriends(id) {
     var totalCount = 0;
     for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
-         var userMovies = response.data[i].movies);
+         var userMovies = response.data[i].movies;
           for(j=0;j<userMovies.data.length;j++){
 
             var name=userMovies.data[j].name;
