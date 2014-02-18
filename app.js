@@ -31,8 +31,7 @@ function getAllMoviesOfUser(id) {
    FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
    for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
-       console.log(response.data[i].movies)
-       movies.push(response.data[i].movies)
+         movies.push(response.data[i].movies)
         }  
        }
      })
