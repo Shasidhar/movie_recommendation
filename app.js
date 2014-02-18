@@ -45,8 +45,8 @@ function getAllMoviesOfUserFriends(id) {
 function getOnlyEnglishMovies(){
   console.log(allMovies[10].name);
   /*var movies = allMovies.map(function(obj) { return obj.id; });
-  movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });
-  var messagespan = document.getElementById('topMessageSpan');*/
+  movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });*/
+  var messagespan = document.getElementById('topMessageSpan');
   messagespan.innerHTML="Total movies liked by you and your friends are "+allMovies.length;
   
   for(i=0;i<allMovies.length;i++){
