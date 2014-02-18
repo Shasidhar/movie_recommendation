@@ -11,12 +11,27 @@ function Login()
 		   	    message_span.innerHTML="Movies liked by You and Your friends";
             console.log(response.authResponse.userID)
             getAllMoviesOfUser(response.authResponse.userID)
+            populateMovies(allMovies)
   			} else
   			{
   	    	 console.log('User cancelled login or did not fully authorize.');
    			}
 		 },{scope: 'email,user_friends'});
 
+ }
+
+function populateMovies(allMovies){
+ for(i=0;i<allMovies.length;i++)
+  {
+    if(allMovies[i]!=undefined){
+      if(allMovies[i].data!=undefined){
+      console.log(allMovies[i].data.length)
+      for(j=0;j<allMovies[i].data.length;j++){
+        movies.push(allMovies[i].data[j])
+      }
+      }
+    }
+  }
  }
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies', function(response) {
@@ -31,17 +46,5 @@ function getAllMoviesOfUser(id) {
         console.log(response.data[i].movies)
         allMovies.push(response.data[i].movies)
       }
-    })
- 
- for(i=0;i<allMovies.length;i++)
-  {
-    if(allMovies[i]!=undefined){
-      if(allMovies[i].data!=undefined){
-          console.log(allMovies[i].data.length)
-      for(j=0;j<allMovies[i].data.length;j++){
-        movies.push(allMovies[i].data[j])
-      }
-      }
-    }
-  } 
+    }) 
 }
