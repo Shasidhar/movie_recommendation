@@ -1,9 +1,5 @@
 var allMovies = new Array();
-_.uniqObjects = function( arr ){
-	return _.uniq( _.collect( arr, function( x ){
-		return JSON.stringify( x );
-	}));
-};
+
 function Login()
   {
     FB.login(function(response) {
