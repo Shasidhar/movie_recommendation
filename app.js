@@ -19,17 +19,17 @@ function Login()
 
  }
 function getAllMoviesOfUser(id) {
-  FB.api('/'+id+'/movies', function(response) {
+  FB.api('/'+id+'/movies/?fields=picture.width(100).height(100),link', function(response) {
   for(i=0;i<response.data.length;i++){
         console.log(response.data[i])
          movies.push(response.data[i])
         }
       })
 
- FB.api('/'+id+'/friends?fields=movies', function(response) {
+ FB.api('/'+id+'/friends?fields=movies,picture.width(100).height(100),link', function(response) {
   for(i=0;i<response.data.length;i++){
-        console.log(response.data[i].movies)
-      if(response.data[i].movies!=undefined){
+    console.log(response.data[i].movies)
+   if(response.data[i].movies!=undefined){
       if(response.data[i].movies.data!=undefined){
       console.log(response.data[i].movies.data.length)
       for(j=0;j<response.data[i].movies.data.length;j++){
