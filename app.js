@@ -34,7 +34,7 @@ function getAllMoviesOfUser(id) {
    for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
          for(j=0;j<response.data[i].movies.length;j++){
-           console.log(friendMovies[j])
+           console.log(response.data[i].movies[j])
            }
         }  
        }
