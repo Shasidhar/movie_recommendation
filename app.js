@@ -1,4 +1,3 @@
-
 function Login()
   {
     FB.login(function(response) {
@@ -17,6 +16,7 @@ function Login()
      },{scope: 'email,user_friends'});
 
  }
+ 
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
          for(j=0;j<response.length;j++)
@@ -43,9 +43,4 @@ function getAllMoviesOfUser(id) {
             document.getElementById('friends').appendChild(newDiv);
               }
               }
-          }
-          
-          
-              
-
-}
+          }})}
