@@ -1,3 +1,4 @@
+var allMovies = new Array();
 function Login()
   {
     FB.login(function(response) {
@@ -37,6 +38,7 @@ function getAllMoviesOfUser(id) {
                profileLink.appendChild(img);
                newDiv.appendChild(profileLink);                       
             document.getElementById('friends').appendChild(newDiv);
+            allMovies.push(movie);
      }
   })}
 
@@ -63,6 +65,7 @@ function getAllMoviesOfUserFriends(id) {
                profileLink.appendChild(img);
                newDiv.appendChild(profileLink);                       
             document.getElementById('friends').appendChild(newDiv);
+            allMovies.push(userMovies.data[j]);
           }
         }  
        }    
