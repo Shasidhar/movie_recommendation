@@ -18,12 +18,12 @@ function Login()
  }
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
-    console.log(response.movies.length);
-     if(totalCount>0) {
+    console.log(response.data.length);
+     if(response.data.length>0) {
       	var message_span = document.getElementById('topMessageSpan');
       	message_span.innerHTML=response.data.length+" Movies you like";
      }
-    for(j=0;j<response.movies.length;j++)
+    for(j=0;j<response.data.length;j++)
         {
           console.log(j);
           for(k=0;k<response[j].data.length;k++){
