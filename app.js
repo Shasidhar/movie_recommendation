@@ -1,5 +1,5 @@
 var movies = new Array();
-var friendMovies = new Array();
+var allMovies = new Array();
 function Login()
   {
     FB.login(function(response) {
@@ -35,5 +35,30 @@ function getAllMoviesOfUser(id) {
         }  
        }
      })
+      for(j=0;j<movies.length;j++)
+        {
+          for(k=0;k<movies[j].data.length;k++){
+              console.log(movies[j].data[k])
+              allMovies.push(movies[j].data[k])
+              }
+          }
+          for(i=0;i<allMovies.length;i++){
+        var name=allMovies[i].name;
+               var picture_url = allMovies[i].picture.data.url;
+               var link = allMovies[i].link
+               var newDiv = document.createElement('div');
+               newDiv.className="friendDiv col-md-1 col-xs-4"              
+               var profileLink = document.createElement('a')
+               profileLink.href=link;
+               profileLink.target="_blank"
+               var img = document.createElement('img');
+               img.title=name;
+               img.src=picture_url;
+               img.className="img-responsive";
+               profileLink.appendChild(img);
+               newDiv.appendChild(profileLink);                       
+            document.getElementById('friends').appendChild(newDiv);
+
+}
      
 }
