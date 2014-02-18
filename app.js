@@ -11,7 +11,6 @@ function Login()
 		   	    message_span.innerHTML="Movies liked by You and Your friends";
             console.log(response.authResponse.userID)
             getAllMoviesOfUser(response.authResponse.userID)
-           
   			} else
   			{
   	    	 console.log('User cancelled login or did not fully authorize.');
@@ -23,7 +22,7 @@ function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies', function(response) {
   for(i=0;i<response.data.length;i++){
         console.log(response.data[i])
-        allMovies.push(response.data[i])
+         movies.push(response.data[i])
         }
       })
 
@@ -34,3 +33,15 @@ function getAllMoviesOfUser(id) {
       }
     })
 }
+
+ for(i=0;i<allMovies.length;i++)
+  {
+    if(allMovies[i]!=undefined){
+      if(allMovies[i].data!=undefined){
+          console.log(allMovies[i].data.length)
+      for(j=0;j<allMovies[i].data.length;j++){
+        movies.push(allMovies[i].data[j])
+      }
+      }
+    }
+  } 
