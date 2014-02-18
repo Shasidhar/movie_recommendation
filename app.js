@@ -7,7 +7,7 @@ function Login()
             var loginButton = document.getElementById('loginButton');
             loginButton.parentNode.removeChild(loginButton);
             var message_span = document.getElementById('topMessageSpan');
-            message_span.innerHTML="Movies liked by You and Your friends";
+            message_span.innerHTML="Fetching movie information...";
             console.log(response.authResponse.userID);
             getAllMoviesOfUser(response.authResponse.userID);
             getAllMoviesOfUserFriends(response.authResponse.userID);
