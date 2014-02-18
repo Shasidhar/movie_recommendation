@@ -20,9 +20,7 @@ function Login()
  }
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
-  for(i=0;i<response.data.length;i++){
          movies.push(response)
-        }
       })
     /*FB.api('/'+id+'/friends', function(response) {
     for(i=0;i<response.data.length;i++){
