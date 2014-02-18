@@ -44,7 +44,7 @@ function getAllMoviesOfUser(id) {
             document.getElementById('friends').appendChild(newDiv);
      }
   })}
-function getAllMoviesOfUser(id) {
+function getAllMoviesOfUserFriends(id) {
   FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
     var totalCount = 0;
     console.log(response);
