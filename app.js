@@ -22,7 +22,7 @@ function getAllMoviesOfUser(id,movies) {
   FB.api('/'+id+'/movies', function(response) {
   for(i=0;i<response.data.length;i++){
         console.log(response.data[i])
-        movies.push(resp.data[i])
+        movies.push(response.data[i])
         }
       })
 
