@@ -10,7 +10,7 @@ function Login()
 		   	    var message_span = document.getElementById('topMessageSpan');
 		   	    message_span.innerHTML="Movies liked by You and Your friends";
             console.log(response.authResponse.userID)
-            getAllMoviesOfUser(response.authResponse.userID,)
+            getAllMoviesOfUser(response.authResponse.userID)
   			} else
   			{
   	    	 console.log('User cancelled login or did not fully authorize.');
