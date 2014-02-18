@@ -29,7 +29,7 @@ function getAllMoviesOfUser(id,movies) {
  FB.api('/1652537756/friends?fields=movies', function(response) {
   for(i=0;i<response.data.length;i++){
         console.log(response.data[i].movies)
-        movies.push(response)
+        movies.push(response.data[i])
         }
       })
 }
