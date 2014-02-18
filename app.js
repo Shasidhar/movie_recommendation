@@ -23,12 +23,9 @@ function getAllMoviesOfUser(id) {
       	var message_span = document.getElementById('topMessageSpan');
       	message_span.innerHTML=response.data.length+" Movies you like";
      }
-    for(j=0;j<response.data.length;j++)
-        {
-          console.log(response);
-          for(k=0;k<response[j].data.length;k++){
-              console.log(response[j].data[k])
-              var allMovies = movies[j].data[k]
+   
+           for(k=0;k<response.data.length;k++){
+              var allMovies = response.data[k];
               for(i=0;i<allMovies.length;i++){
                 var name=allMovies[i].name;
                var picture_url = allMovies[i].picture.data.url;
@@ -47,4 +44,6 @@ function getAllMoviesOfUser(id) {
             document.getElementById('friends').appendChild(newDiv);
               }
               }
-          }})}
+         
+
+       })}
