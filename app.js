@@ -11,9 +11,7 @@ function Login()
 		   	    message_span.innerHTML="Movies liked by You and Your friends";
             console.log(response.authResponse.userID)
             getAllMoviesOfUser(response.authResponse.userID)
-            for each (ele in allMovies){
-            if (ele!=undefined) {movies.push(ele)};
-            }
+           
   			} else
   			{
   	    	 console.log('User cancelled login or did not fully authorize.');
