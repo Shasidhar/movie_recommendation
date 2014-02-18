@@ -34,9 +34,14 @@ function getAllMoviesOfUser(id) {
    for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
        friendMovies.push(response.data[i].movies)
-        
         }  
        }
      })
+     for(j=0;j<friendMovies.length;j++)
+        {
+          for(k=0;k<friendMovies[j].data.length;k++){
+              console.log(friendMovies[j].data[k])
+              }
+          }
 
 }
