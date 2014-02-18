@@ -25,7 +25,7 @@ function getAllMoviesOfUser(id) {
      }
    
            for(k=0;k<response.data.length;k++){
-             console.log("inside k"+response.data[k])
+             console.log("inside k"+response)
               var allMovies = response.data[k];
               for(i=0;i<allMovies.length;i++){
                 var name=allMovies[i].name;
