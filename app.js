@@ -7,8 +7,9 @@ function Login()
             loginButton.parentNode.removeChild(loginButton);
             var message_span = document.getElementById('topMessageSpan');
             message_span.innerHTML="Movies liked by You and Your friends";
-            console.log(response.authResponse.userID)
-            getAllMoviesOfUser(response.authResponse.userID)
+            console.log(response.authResponse.userID);
+            getAllMoviesOfUser(response.authResponse.userID);
+            getAllMoviesOfUserFriends(response.authResponse.userID);
         } else
         {
            console.log('User cancelled login or did not fully authorize.');
@@ -43,3 +44,14 @@ function getAllMoviesOfUser(id) {
             document.getElementById('friends').appendChild(newDiv);
      }
   })}
+function getAllMoviesOfUser(id) {
+  FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
+    var totalCount = 0;
+    console.log(response);
+     for (var i=0;i<response.data.length;i++){
+        var userInfo = response.data[i];
+        console.log(userInfo);
+        } 
+     })
+     
+}
