@@ -1,21 +1,21 @@
 var movies = new Array();
 var friends = new Array();
 function Login()
-	{
-		FB.login(function(response) {
-		   if (response.authResponse)
-		   {
-		   	    var loginButton = document.getElementById('loginButton');
-		   	    loginButton.parentNode.removeChild(loginButton);
-		   	    var message_span = document.getElementById('topMessageSpan');
-		   	    message_span.innerHTML="Movies liked by You and Your friends";
+  {
+    FB.login(function(response) {
+       if (response.authResponse)
+       {
+            var loginButton = document.getElementById('loginButton');
+            loginButton.parentNode.removeChild(loginButton);
+            var message_span = document.getElementById('topMessageSpan');
+            message_span.innerHTML="Movies liked by You and Your friends";
             console.log(response.authResponse.userID)
             getAllMoviesOfUser(response.authResponse.userID)
-  			} else
-  			{
-  	    	 console.log('User cancelled login or did not fully authorize.');
-   			}
-		 },{scope: 'email,user_friends'});
+        } else
+        {
+           console.log('User cancelled login or did not fully authorize.');
+        }
+     },{scope: 'email,user_friends'});
 
  }
 function getAllMoviesOfUser(id) {
