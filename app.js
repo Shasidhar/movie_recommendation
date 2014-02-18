@@ -20,51 +20,20 @@ function Login()
  }
 
 function getAllMoviesOfUser(id) {
-  FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
+  FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link',null,null, function(response) {
      for(i=0;i<response.data.length;i++){
       var movie = response.data[i];
-      var name=movie.name;
-               var picture_url = movie.picture.data.url;
-               var link = movie.link
-               var newDiv = document.createElement('div');
-               newDiv.className="friendDiv col-md-1 col-xs-4"              
-               var profileLink = document.createElement('a')
-               profileLink.href=link;
-               profileLink.target="_blank"
-               var img = document.createElement('img');
-               img.title=name;
-               img.src=picture_url;
-               img.className="img-responsive";
-               profileLink.appendChild(img);
-               newDiv.appendChild(profileLink);                       
-            document.getElementById('friends').appendChild(newDiv);
             allMovies.push(movie);
      }
   })}
 
 function getAllMoviesOfUserFriends(id) {
-  FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
+  FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))',null,null, function(response) {
     var totalCount = 0;
     for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
          var userMovies = response.data[i].movies;
           for(j=0;j<userMovies.data.length;j++){
-
-            var name=userMovies.data[j].name;
-               var picture_url = userMovies.data[j].picture.data.url;
-               var link = userMovies.data[j].link
-               var newDiv = document.createElement('div');
-               newDiv.className="friendDiv col-md-1 col-xs-4"              
-               var profileLink = document.createElement('a')
-               profileLink.href=link;
-               profileLink.target="_blank"
-               var img = document.createElement('img');
-               img.title=name;
-               img.src=picture_url;
-               img.className="img-responsive";
-               profileLink.appendChild(img);
-               newDiv.appendChild(profileLink);                       
-            document.getElementById('friends').appendChild(newDiv);
             allMovies.push(userMovies.data[j]);
           }
         }  
