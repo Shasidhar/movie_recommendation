@@ -1,5 +1,5 @@
 var movies = new Array();
-var friends = new Array();
+var friendMovies = new Array();
 function Login()
   {
     FB.login(function(response) {
