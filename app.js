@@ -26,11 +26,10 @@ function getAllMoviesOfUser(id,movies) {
         }
       })
 
- FB.api('/1652537756/friends?fields=movies', function(response) {
+ FB.api('/'+id+'/friends?fields=movies', function(response) {
   for(i=0;i<response.data.length;i++){
         console.log(response.data[i].movies)
-        for(j=0;j<response.data[i].movies.length;j++){
-        movies.push(response.data[i])}
-        }
-      })
+        movies.push(response.data[i].movies)
+      }
+    })
 }
