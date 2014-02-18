@@ -32,8 +32,7 @@ function getAllMoviesOfUser(id) {
         allMovies.push(response.data[i].movies)
       }
     })
-}
-
+ 
  for(i=0;i<allMovies.length;i++)
   {
     if(allMovies[i]!=undefined){
@@ -45,3 +44,4 @@ function getAllMoviesOfUser(id) {
       }
     }
   } 
+}
