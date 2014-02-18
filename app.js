@@ -51,6 +51,6 @@ function getAllMoviesOfUserFriends(id) {
      if(response.data[i].movies!=undefined){
          console.log(response.data[i].movies)
         }  
-       }
-     
+       }    
+})
 }
