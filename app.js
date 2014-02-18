@@ -33,6 +33,7 @@ function getAllMoviesOfUser(id) {
    FB.api('/'+id+'/friends?fields=movies', function(response) {
    for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
+       console.log(response.data[i].movies)
          for(j=0;j<response.data[i].movies.length;j++){
            console.log(response.data[i].movies[j])
            }
