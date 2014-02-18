@@ -45,7 +45,7 @@ function getAllMoviesOfUserFriends(id) {
 function getOnlyEnglishMovies(){
   console.log(allMovies[10].name);
   var messagespan = document.getElementById('topMessageSpan');
-  message_span.innerHTML="Total movies liked by you and your friends are "+allMovies.length;
+  messagespan.innerHTML="Total movies liked by you and your friends are "+allMovies.length;
   for(i=0;i<allMovies.length;i++){
       var movie = allMovies[i];
       var name=movie.name;
