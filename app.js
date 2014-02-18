@@ -1,4 +1,5 @@
-var movies = new Array(); 
+var allMovies = new Array(); 
+var movies = new Array()
 function Login()
 	{
 		FB.login(function(response) {
@@ -9,8 +10,7 @@ function Login()
 		   	    var message_span = document.getElementById('topMessageSpan');
 		   	    message_span.innerHTML="Movies liked by You and Your friends";
             console.log(response.authResponse.userID)
-            getAllMoviesOfUser(response.authResponse.userID,movies)
-            console.log(movies)
+            getAllMoviesOfUser(response.authResponse.userID,)
   			} else
   			{
   	    	 console.log('User cancelled login or did not fully authorize.');
@@ -18,18 +18,22 @@ function Login()
 		 },{scope: 'email,user_friends'});
 
  }
-function getAllMoviesOfUser(id,movies) {
+function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies', function(response) {
   for(i=0;i<response.data.length;i++){
         console.log(response.data[i])
-        movies.push(response.data[i])
+        allMovies.push(response.data[i])
         }
       })
 
  FB.api('/'+id+'/friends?fields=movies', function(response) {
   for(i=0;i<response.data.length;i++){
         console.log(response.data[i].movies)
-        movies.push(response.data[i].movies)
+        allMovies.push(response.data[i].movies)
       }
     })
 }
+
+ for each (ele in movies){
+  if (ele!=undefined) {movies.push(ele)};
+ }
