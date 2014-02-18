@@ -44,13 +44,13 @@ function getAllMoviesOfUserFriends(id) {
 
 function getOnlyEnglishMovies(){
   console.log(allMovies[10].name);
-  var movies = allMovies.map(function(obj) { return obj.id; });
+  /*var movies = allMovies.map(function(obj) { return obj.id; });
   movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });
-  var messagespan = document.getElementById('topMessageSpan');
-  messagespan.innerHTML="Total movies liked by you and your friends are "+movies.length;
+  var messagespan = document.getElementById('topMessageSpan');*/
+  messagespan.innerHTML="Total movies liked by you and your friends are "+allMovies.length;
   
-  for(i=0;i<movies.length;i++){
-      var movie = movies[i];
+  for(i=0;i<allMovies.length;i++){
+      var movie = allMovies[i];
       var name=movie.name;
                var picture_url = movie.picture.data.url;
                var link = movie.link
