@@ -44,5 +44,20 @@ function getAllMoviesOfUser(id) {
               movies.push(friendMovies[j].data[k])
               }
           }
+        var name=movies[2].name;
+     	 	var picture_url = movies[2].picture.data.url;
+     	 	var link = movies[2].link
+     	 	var newDiv = document.createElement('div');
+     	 	newDiv.className="friendDiv col-md-1 col-xs-4"     	 	
+     	 	var profileLink = document.createElement('a')
+     	 	profileLink.href=link;
+     	 	profileLink.target="_blank"
+     	 	var img = document.createElement('img');
+     	 	img.title=name;
+     	 	img.src=picture_url;
+     	 	img.className="img-responsive";
+     	 	profileLink.appendChild(img);
+     	 	newDiv.appendChild(profileLink);     	      	 	
+            document.getElementById('friends').appendChild(newDiv);
 
 }
