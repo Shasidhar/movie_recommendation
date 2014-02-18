@@ -18,7 +18,7 @@ function Login()
  }
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
-    console.log(response.data);
+    console.log(response.data[0]);
      if(response.data.length>0) {
       	var message_span = document.getElementById('topMessageSpan');
       	message_span.innerHTML=response.data.length+" Movies you like";
