@@ -35,7 +35,7 @@ function getAllMoviesOfUser(id) {
      if(response.data[i].movies!=undefined){
        console.log(response.data[i].movies)
          for(j=0;j<response.data[i].movies.length;j++){
-           console.log(response.data[i].movies[j])
+           console.log("ahaha")
            }
         }  
        }
