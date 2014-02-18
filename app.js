@@ -16,21 +16,19 @@ function Login()
      },{scope: 'email,user_friends'});
 
  }
+
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
-    console.log(response.data[0]);
+    console.log(response.data);
      if(response.data.length>0) {
-      	var message_span = document.getElementById('topMessageSpan');
-      	message_span.innerHTML=response.data.length+" Movies you like";
+        var message_span = document.getElementById('topMessageSpan');
+        message_span.innerHTML=response.data.length+" Movies you like";
      }
-    console.log("outside k"+response)
-           for(k=0;k<response.data.length;k++){
-             console.log("inside k"+response)
-              var allMovies = response.data[k];
-              for(i=0;i<allMovies.length;i++){
-                var name=allMovies[i].name;
-               var picture_url = allMovies[i].picture.data.url;
-               var link = allMovies[i].link
+     for(i=0;i<response.data.length;i++){
+      var movie = response.data[i];
+      var name=movie.name;
+               var picture_url = movie.picture.data.url;
+               var link = movie.link
                var newDiv = document.createElement('div');
                newDiv.className="friendDiv col-md-1 col-xs-4"              
                var profileLink = document.createElement('a')
@@ -43,8 +41,5 @@ function getAllMoviesOfUser(id) {
                profileLink.appendChild(img);
                newDiv.appendChild(profileLink);                       
             document.getElementById('friends').appendChild(newDiv);
-              }
-              }
-         
-
-       })}
+     }
+  })}
