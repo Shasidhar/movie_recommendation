@@ -33,31 +33,15 @@ function getAllMoviesOfUser(id) {
    FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
    for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
-       friendMovies.push(response.data[i].movies)
+       friendMovies.push()
+       for(j=0;j<response.data[i].movies.length;j++)
+        {
+          for(k=0;k<response.data[i].movies[j].data.length;k++){
+              console.log(response.data[i].movies[j].data[k])
+              movies.push(response.data[i].movies[j].data[k])
+              }
+          }
         }  
        }
      })
-     for(j=0;j<friendMovies.length;j++)
-        {
-          for(k=0;k<friendMovies[j].data.length;k++){
-              console.log(friendMovies[j].data[k])
-              movies.push(friendMovies[j].data[k])
-              }
-          }
-        var name=movies[2].name;
-     	 	var picture_url = movies[2].picture.data.url;
-     	 	var link = movies[2].link
-     	 	var newDiv = document.createElement('div');
-     	 	newDiv.className="friendDiv col-md-1 col-xs-4"     	 	
-     	 	var profileLink = document.createElement('a')
-     	 	profileLink.href=link;
-     	 	profileLink.target="_blank"
-     	 	var img = document.createElement('img');
-     	 	img.title=name;
-     	 	img.src=picture_url;
-     	 	img.className="img-responsive";
-     	 	profileLink.appendChild(img);
-     	 	newDiv.appendChild(profileLink);     	      	 	
-            document.getElementById('friends').appendChild(newDiv);
-
 }
