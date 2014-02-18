@@ -23,7 +23,7 @@ function getAllMoviesOfUser(id) {
       	var message_span = document.getElementById('topMessageSpan');
       	message_span.innerHTML=response.data.length+" Movies you like";
      }
-   
+    console.log("outside k"+response)
            for(k=0;k<response.data.length;k++){
              console.log("inside k"+response)
               var allMovies = response.data[k];
