@@ -1,5 +1,4 @@
-var movies = new Array();
-var allMovies = new Array();
+
 function Login()
   {
     FB.login(function(response) {
@@ -20,33 +19,14 @@ function Login()
  }
 function getAllMoviesOfUser(id) {
   FB.api('/'+id+'/movies/?fields=name,picture.width(100).height(100),link', function(response) {
-         movies.push(response)
-      })
-    /*FB.api('/'+id+'/friends', function(response) {
-    for(i=0;i<response.data.length;i++){
-         friends.push(response.data[i])
-        }
-      })
-   getAllMovies(friends)*/
-   FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
-   for(i=0;i<response.data.length;i++){
-     if(response.data[i].movies!=undefined){
-         movies.push(response.data[i].movies)
-        }  
-       }
-     })
-     console.log("movies length"+movies.length);
-      for(j=0;j<movies.length;j++)
+         for(j=0;j<response.length;j++)
         {
           console.log(j);
-          for(k=0;k<movies[j].data.length;k++){
-              console.log(movies[j].data[k])
-              allMovies.push(movies[j].data[k])
-              }
-          }
-          
-          for(i=0;i<allMovies.length;i++){
-        var name=allMovies[i].name;
+          for(k=0;k<response[j].data.length;k++){
+              console.log(response[j].data[k])
+              var allMovies = movies[j].data[k]
+              for(i=0;i<allMovies.length;i++){
+                var name=allMovies[i].name;
                var picture_url = allMovies[i].picture.data.url;
                var link = allMovies[i].link
                var newDiv = document.createElement('div');
@@ -61,7 +41,11 @@ function getAllMoviesOfUser(id) {
                profileLink.appendChild(img);
                newDiv.appendChild(profileLink);                       
             document.getElementById('friends').appendChild(newDiv);
+              }
+              }
+          }
+          
+          
+              
 
-}
-     
 }
