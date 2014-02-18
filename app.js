@@ -41,6 +41,7 @@ function getAllMoviesOfUser(id) {
         {
           for(k=0;k<friendMovies[j].data.length;k++){
               console.log(friendMovies[j].data[k])
+              movies.push(friendMovies[j].data[k])
               }
           }
 
