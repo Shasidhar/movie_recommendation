@@ -495,12 +495,6 @@
     return results;
   };
 
-    _.uniqObjects = function( arr ){
-	  return _.uniq( _.collect( arr, function( x ){
-		return JSON.stringify( x );
-	    }));
-    };
-
   // Produce an array that contains the union: each distinct element from all of
   // the passed-in arrays.
   _.union = function() {
