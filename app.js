@@ -1,4 +1,9 @@
 var allMovies = new Array();
+_.uniqObjects = function( arr ){
+	return _.uniq( _.collect( arr, function( x ){
+		return JSON.stringify( x );
+	}));
+};
 function Login()
   {
     FB.login(function(response) {
@@ -44,6 +49,7 @@ function getAllMoviesOfUserFriends(id) {
 
 function getOnlyEnglishMovies(){
   console.log(allMovies[10].name);
+  var uniqueMovies = _uniqObjects(allMovies);
   /*var movies = allMovies.map(function(obj) { return obj.id; });
   movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });*/
   var messagespan = document.getElementById('topMessageSpan');
@@ -52,7 +58,7 @@ function getOnlyEnglishMovies(){
   for(i=0;i<allMovies.length;i++){
       var movie = allMovies[i];
       var name=movie.name;
-               var picture_url = movie.picture.data.url;
+               var picture_url = uniqueMovies[0].picture.data.url;
                var link = movie.link
                var newDiv = document.createElement('div');
                newDiv.className="friendDiv col-md-1 col-xs-4"              
