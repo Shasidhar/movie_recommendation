@@ -42,10 +42,15 @@ function getAllMoviesOfUserFriends(id) {
        getOnlyEnglishMovies();
 })
 }
+unique = function( arr ){
+	return _.uniq( _.collect( arr, function( x ){
+		return JSON.stringify( x );
+	}));
+};
 
 function getOnlyEnglishMovies(){
   console.log(allMovies[10].name);
-  var uniqueMovies = _uniqObjects(allMovies);
+  var uniqueMovies = unique(allMovies);
   /*var movies = allMovies.map(function(obj) { return obj.id; });
   movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });*/
   var messagespan = document.getElementById('topMessageSpan');
