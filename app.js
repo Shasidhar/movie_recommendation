@@ -35,13 +35,16 @@ function getAllMoviesOfUser(id) {
         }  
        }
      })
+     console.log("movies length"+movies.length);
       for(j=0;j<movies.length;j++)
         {
+          console.log(j);
           for(k=0;k<movies[j].data.length;k++){
               console.log(movies[j].data[k])
               allMovies.push(movies[j].data[k])
               }
           }
+          
           for(i=0;i<allMovies.length;i++){
         var name=allMovies[i].name;
                var picture_url = allMovies[i].picture.data.url;
