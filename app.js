@@ -30,7 +30,7 @@ function getAllMoviesOfUser(id) {
         }
       })
    getAllMovies(friends)*/
-   FB.api('/'+id+'/friends?fields=movies', function(response) {
+   FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
    for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
        friendMovies.push(response.data[i].movies)
