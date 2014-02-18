@@ -15,7 +15,7 @@ function Login()
         {
            console.log('User cancelled login or did not fully authorize.');
         }
-     },{scope: 'email,user_friends,friends_likes'},function(response){console.log(allMovies)});
+     },{scope: 'email,user_friends,friends_likes'});
 
  }
 
@@ -43,7 +43,7 @@ function getAllMoviesOfUser(id) {
   })}
 
 function getAllMoviesOfUserFriends(id) {
-  FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))',function(response) {
+  FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))', function(response) {
     var totalCount = 0;
     for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
@@ -69,5 +69,5 @@ function getAllMoviesOfUserFriends(id) {
           }
         }  
        }    
-},null,function(resp){console.log(allMovies.length);})
+})
 }
