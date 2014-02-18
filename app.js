@@ -1,5 +1,5 @@
 var allMovies = new Array();
-var validMovies = new Array();
+
 
 function Login()
   {
@@ -56,7 +56,7 @@ function getOnlyEnglishMovies(){
   movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });*/
   var messagespan = document.getElementById('topMessageSpan');
   messagespan.innerHTML="Total movies liked by you and your friends are "+uniqueMovies.length;
-  
+  var validMovies = new Array();
   for(i=0;i<uniqueMovies.length;i++){
       var movie = JSON.parse(uniqueMovies[i]);
       validMovies.push(movie);
