@@ -78,7 +78,7 @@ movies.map(function(movie){
 	$.getJSON(url, function(response) {
  		console.log(response.result);
  		if(response.result.length>0){
- 		if(response.result[0].language[0]=="English Language"){englishMovies.push(englishMovies)};}
+ 		if(response.result[0].language[0]=="English Language"){englishMovies.push(movie)};}
  		});
 	})
 }
