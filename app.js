@@ -57,7 +57,7 @@ function populateMovies(){
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
-var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
+/*var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
 uniqueMovieObjects.map(function(movie){
 	var query='[{"type":"/film/film","language":[],"initial_release_date": null,"name":"'+movie.name+'"}]';
@@ -65,6 +65,12 @@ uniqueMovieObjects.map(function(movie){
 	$.getJSON(url, function(response) {
  		console.log(response);
  		});
-	})
+	})*/
+var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
+var movie = new Array();
+movie.push(uniqueMovieObjects[0]);
+movie.push(uniqueMovieObjects[0]);
+movie.push(uniqueMovieObjects[0]);
+movie.push(uniqueMovieObjects[0]);
 }
 
