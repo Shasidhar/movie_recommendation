@@ -76,7 +76,7 @@ movies.map(function(movie){
 	var query='[{"type":"/film/film","language":[],"initial_release_date": null,"name":"'+movie.name+'"}]';
 	var url = service_url+query;
 	$.getJSON(url, function(response) {
- 		console.log(response);
+ 		console.log(response.result);
  		});
 	})
 }
