@@ -67,10 +67,17 @@ uniqueMovieObjects.map(function(movie){
  		});
 	})*/
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
-var movie = new Array();
-movie.push(uniqueMovieObjects[0]);
-movie.push(uniqueMovieObjects[0]);
-movie.push(uniqueMovieObjects[0]);
-movie.push(uniqueMovieObjects[0]);
+var movies = new Array();
+movies.push(uniqueMovieObjects[0]);
+movies.push(uniqueMovieObjects[2]);
+movies.push(uniqueMovieObjects[1]);
+movies.push(uniqueMovieObjects[3]);
+movies.map(function(movie){
+	var query='[{"type":"/film/film","language":[],"initial_release_date": null,"name":"'+movie.name+'"}]';
+	var url = service_url+query;
+	$.getJSON(url, function(response) {
+ 		console.log(response);
+ 		});
+	})
 }
 
