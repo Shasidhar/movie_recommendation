@@ -54,7 +54,7 @@ function getOnlyEnglishMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { 
   	var returnObject = JSON.parse(obj);
-  	checkEnglishMovie(returnObject.name);
+  	console.log(checkEnglishMovie(returnObject.name));
   	});
 }
 
