@@ -1,5 +1,5 @@
 var allMovies = new Array();
-
+var englishMovies = new Array();
 
 function Login()
   {
@@ -77,6 +77,7 @@ movies.map(function(movie){
 	var url = service_url+query;
 	$.getJSON(url, function(response) {
  		console.log(response.result);
+ 		if(response.result[0].language[0]=="English Language"){englishMovies.push(englishMovies)};
  		});
 	})
 }
