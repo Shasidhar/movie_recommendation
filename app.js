@@ -72,6 +72,12 @@ movies.push(uniqueMovieObjects[0]);
 movies.push(uniqueMovieObjects[2]);
 movies.push(uniqueMovieObjects[1]);
 movies.push(uniqueMovieObjects[3]);
+movies.push(uniqueMovieObjects[4]);
+movies.push(uniqueMovieObjects[10]);
+movies.push(uniqueMovieObjects[11]);
+movies.push(uniqueMovieObjects[12]);
+movies.push(uniqueMovieObjects[16]);
+
 movies.map(function(movie){
 	var query='[{"type":"/film/film","language":[],"initial_release_date": null,"sort": "-initial_release_date","name":"'+movie.name+'"}]';
 	var url = service_url+query;
