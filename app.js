@@ -78,7 +78,25 @@ movies.map(function(movie){
 	$.getJSON(url, function(response) {
  		console.log(response.result);
  		if(response.result.length>0){
- 		if(response.result[0].language[0]=="English Language"){englishMovies.push(movie)};}
+ 		if(response.result[0].language[0]=="English Language"){
+ 			englishMovies.push(movie)
+       			var name=movie.name;
+        		var picture_url = movie.picture.data.url;
+                	var link = movie.link
+                	var newDiv = document.createElement('div');
+                	newDiv.className="friendDiv col-md-1 col-xs-4"              
+                	var profileLink = document.createElement('a')
+                	profileLink.href=link;
+                	profileLink.target="_blank"
+                	var img = document.createElement('img');
+                	img.title=name;
+                	img.src=picture_url;
+                	img.className="img-responsive";
+               		profileLink.appendChild(img);
+                	newDiv.appendChild(profileLink);                       
+            		document.getElementById('friends').appendChild(newDiv);	
+ 			};
+ 		}
  		});
 	})
 }
