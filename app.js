@@ -53,7 +53,7 @@ function getOnlyEnglishMovies(){
   console.log(allMovies[10].name);
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj); });
-  console.log(uniqueMovieObjects[0]);
+  console.log("objects:"+uniqueMovieObjects.length+",strings:"+uniqueMovies.length);
  // movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });
   
             
