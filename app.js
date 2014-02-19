@@ -52,9 +52,41 @@ unique = function( arr ){
 function getOnlyEnglishMovies(){
   console.log(allMovies[10].name);
   var uniqueMovies = unique(allMovies);
-  var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj); });
-  console.log("objects:"+uniqueMovieObjects.length+",strings:"+uniqueMovies.length);
- // movies = movies.filter(function(v,i) { return movies.indexOf(v) == i; });
-  
-            
+  var uniqueMovieObjects = uniqueMovies.map(function(obj) { 
+  	var returnObject = JSON.parse(obj);
+  	checkEnglishMovie(returnObject.name);
+  	});
 }
+
+function checkEnglishMovie(movieName){
+var apikey = "6nkt9qb3ggxbd3ejyzsjvq3x";
+var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0";
+// construct the uri with our apikey
+var valid = false;
+var rating = 0.0;
+var moviesSearchUrl = baseUrl + '/movies.json?apikey=' + apikey;
+var query = movieName;
+$(document).ready(function() {
+
+  // send off the query
+  $.ajax({
+    url: moviesSearchUrl + '&q=' + encodeURI(query),
+    dataType: "jsonp",
+    success: searchCallback
+  });
+});
+// callback for when we get back the results
+function searchCallback(data) {
+ console.log(data);
+ var movies = data.movies;
+ $.each(movies, function(index, movie) {
+  if(movie.title.trim.toLowerCase===query.trim.toLowerCase){
+	valid = true;
+	rating = movie.ratings.critics_score/10;
+	break;
+   }
+ });
+}
+return [valid,rating];
+}
+
