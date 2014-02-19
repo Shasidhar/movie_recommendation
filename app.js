@@ -40,7 +40,7 @@ function getAllMoviesOfUserFriends(id) {
           }
         }  
        }
-       getOnlyEnglishMovies();
+       populateMovies();
 })
 }
 unique = function( arr ){
@@ -49,44 +49,39 @@ unique = function( arr ){
 	}));
 };
 
-function getOnlyEnglishMovies(){
+function populateMovies(){
   console.log(allMovies[10].name);
   var uniqueMovies = unique(allMovies);
-  var uniqueMovieObjects = uniqueMovies.map(function(obj) { 
-  	var returnObject = JSON.parse(obj);
-  	console.log(checkEnglishMovie(returnObject.name));
-  	return null;
-  	});
+  var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.pasre(obj)});
+  getOnlyEnglishMovies(uniqueMovieObjects);
 }
 
-function checkEnglishMovie(movieName){
+function getOnlyEnglishMovies(uniqueMovieObjects){
 var apikey = "6nkt9qb3ggxbd3ejyzsjvq3x";
 var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0";
 // construct the uri with our apikey
 var valid = false;
 var rating = 0.0;
 var moviesSearchUrl = baseUrl + '/movies.json?apikey=' + apikey;
-var query = movieName;
-$(document).ready(function() {
+	uniqueMovieObjects.map(function(movie)){
+		var query = movieName;	
+		 // send off the query
+  	$.ajax({
+	url: moviesSearchUrl + '&q=' + encodeURI(query),
+    	dataType: "jsonp",
+	success: searchCallback
+  	});
+	}
 
-  // send off the query
-  $.ajax({
-    url: moviesSearchUrl + '&q=' + encodeURI(query),
-    dataType: "jsonp",
-    success: searchCallback
-  });
-});
+
 // callback for when we get back the results
 function searchCallback(data) {
  //console.log(data);
  var movies = data.movies;
  $.each(movies, function(index, movie) {
   if(movie.title.trim.toLowerCase===query.trim.toLowerCase){
-	valid = true;
-	rating = movie.ratings.critics_score/10;
+	console.log(movie);
    }
- });
-}
-return [valid,rating];
+ });}
 }
 
