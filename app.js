@@ -57,10 +57,11 @@ function populateMovies(){
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
+var apikey='&key=AIzaSyAXPI0TViHbBfQne3NtahUUVW-qzbNpkhw';
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
 uniqueMovieObjects.map(function(movie){
 	var query='[{"type":"/film/film","language":[],"initial_release_date": null,"name":"'+movie.name+'"}]';
-	var url = service_url+query;
+	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
  		console.log(response);
  		});
