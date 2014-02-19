@@ -69,19 +69,15 @@ uniqueMovieObjects.map(function(movie){
   	$.ajax({
 	url: moviesSearchUrl + '&q=' + encodeURI(query),
     	dataType: "jsonp",
-	success: searchCallback
+	success: function searchCallback(data) {
+ 		//console.log(data);
+		var movies = data.movies;
+		$.each(movies, function(index, movie) {
+			if(movie.title.trim.toLowerCase===query.trim.toLowerCase){
+				console.log(movie);
+				}
+		});}
   	});
 	})
-
-
-// callback for when we get back the results
-function searchCallback(data) {
- //console.log(data);
- var movies = data.movies;
- $.each(movies, function(index, movie) {
-  if(movie.title.trim.toLowerCase===query.trim.toLowerCase){
-	console.log(movie);
-   }
- });}
 }
 
