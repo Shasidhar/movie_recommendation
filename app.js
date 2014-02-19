@@ -64,7 +64,7 @@ var valid = false;
 var rating = 0.0;
 var moviesSearchUrl = baseUrl + '/movies.json?apikey=' + apikey;
 uniqueMovieObjects.map(function(movie){
-		var query = movieName;	
+		var query = movie.name;	
 		 // send off the query
   	$.ajax({
 	url: moviesSearchUrl + '&q=' + encodeURI(query),
