@@ -63,7 +63,7 @@ var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0";
 var valid = false;
 var rating = 0.0;
 var moviesSearchUrl = baseUrl + '/movies.json?apikey=' + apikey;
-var mapreturn = uniqueMovieObjects.map(function(movie)){
+uniqueMovieObjects.map(function(movie){
 		var query = movieName;	
 		 // send off the query
   	$.ajax({
@@ -71,8 +71,7 @@ var mapreturn = uniqueMovieObjects.map(function(movie)){
     	dataType: "jsonp",
 	success: searchCallback
   	});
-  	return null;
-	}
+	})
 
 
 // callback for when we get back the results
