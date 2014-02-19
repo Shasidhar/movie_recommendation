@@ -78,7 +78,7 @@ $(document).ready(function() {
 });
 // callback for when we get back the results
 function searchCallback(data) {
- console.log(data);
+ //console.log(data);
  var movies = data.movies;
  $.each(movies, function(index, movie) {
   if(movie.title.trim.toLowerCase===query.trim.toLowerCase){
