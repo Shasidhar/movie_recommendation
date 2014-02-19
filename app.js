@@ -84,7 +84,6 @@ function searchCallback(data) {
   if(movie.title.trim.toLowerCase===query.trim.toLowerCase){
 	valid = true;
 	rating = movie.ratings.critics_score/10;
-	break;
    }
  });
 }
