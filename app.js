@@ -57,29 +57,14 @@ function populateMovies(){
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
-var apikey = "6nkt9qb3ggxbd3ejyzsjvq3x";
-var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0";
-// construct the uri with our apikey
-var moviesSearchUrl = baseUrl + '/movies.json?apikey=' + apikey;
-uniqueMovieObjects.map(function(movie){
-		var query = movie.name;	
-		 // send off the query
-  	$.ajax({
-	url: moviesSearchUrl + '&q=' + encodeURI(query),
-    	dataType: "jsonp",
-	success: function searchCallback(data) {
- 		//console.log(data);
- 		var selectedMovies = new Array();
-		var movies = data.movies;
-		$.each(movies, function(index, movie) {
-			if(movie.title.toLowerCase()===query.toLowerCase()){
-				selectedMovies.push(movie);
-				}
-		})
-		$(document.body).append('<h1>' + selectedMovies[0].title + '</h1>');
-  		$(document.body).append('<img src="' + selectedMovies[0].posters.thumbnail + '" />');
-		;}
-  	});
+var query='[{"type":"/film/film",,"language":[]},"name":';
+var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
+	uniqueMovieObjects.map(function(obj){
+	query = query + obj.name+']';
+	var url = service_url+query;
+	$.getJSON(url, function(response) {
+	 	console.log(response);
+ 		});
 	})
 }
 
