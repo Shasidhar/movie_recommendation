@@ -57,14 +57,20 @@ function populateMovies(){
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
-;
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
-	uniqueMovieObjects[0].map(function(obj){
+var movie = uniqueMovieObjects[0];
+var query='[{"type":"/film/film",,"language":[]},"name":'+movie.name+']';
+var url = service_url+query;
+$.getJSON(url, function(response) {
+ 	console.log(response);
+ });
+
+	/*uniqueMovieObjects.map(function(obj){
 	var query='[{"type":"/film/film",,"language":[]},"name":'+obj.name+']';
 	var url = service_url+query;
 	$.getJSON(url, function(response) {
 	 	console.log(response);
  		});
-	})
+	})*/
 }
 
