@@ -79,7 +79,7 @@ movies.push(uniqueMovieObjects[12]);
 movies.push(uniqueMovieObjects[16]);
 
 movies.map(function(movie){
-	var query='[{"type":"/film/film","language":[],"initial_release_date": null,"sort": "-initial_release_date","name":"'+movie.name+'"}]';
+	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
 	var url = service_url+query;
 	$.getJSON(url, function(response) {
  		console.log(response.result);
