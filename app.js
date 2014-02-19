@@ -72,7 +72,7 @@ uniqueMovieObjects.map(function(movie){
  		var selectedMovies = new Array();
 		var movies = data.movies;
 		$.each(movies, function(index, movie) {
-			if(movie.title.trim.toLowerCase()===query.trim.toLowerCase()){
+			if(movie.title.toLowerCase()===query.toLowerCase()){
 				selectedMovies.push(movie);
 				}
 		})
