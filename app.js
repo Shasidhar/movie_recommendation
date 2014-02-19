@@ -59,7 +59,7 @@ function populateMovies(){
 function getOnlyEnglishMovies(uniqueMovieObjects){
 ;
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
-	uniqueMovieObjects.map(function(obj){
+	uniqueMovieObjects[0].map(function(obj){
 	var query='[{"type":"/film/film",,"language":[]},"name":'+obj.name+']';
 	var url = service_url+query;
 	$.getJSON(url, function(response) {
