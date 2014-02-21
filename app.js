@@ -53,7 +53,7 @@ function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
   uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)});
-  //getOnlyEnglishMovies(uniqueMovieObjects);
+  getOnlyEnglishMovies(uniqueMovieObjects);
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
@@ -63,8 +63,8 @@ uniqueMovieObjects.map(function(movie){
 	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
 	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
- 		console.log(response.result);
- 		if(response.result.length>0){
+ 		console.log(response.result.name);
+ 	/*	if(response.result.length>0){
  		if(response.result[0].language[0]=="English Language"){
  			englishMovies.push(movie)
        			var name=movie.name;
@@ -83,6 +83,6 @@ uniqueMovieObjects.map(function(movie){
                 	newDiv.appendChild(profileLink);                       
             		document.getElementById('friends').appendChild(newDiv);	
  			};
- 		}
+ 		}*/
  		});
 })}
