@@ -82,8 +82,8 @@ uniqueMovieObjects.map(function(movie){
                 	img.className="img-responsive";
                		profileLink.appendChild(img);
                 	newDiv.appendChild(profileLink);                       
-            		document.getElementById('friends').appendChild(newDiv);	
+            		document.getElementById('friends').appendChild(newDiv);	*/
  			};
- 		}*/
+ 		}
  		});
 })}
