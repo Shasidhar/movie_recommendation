@@ -52,20 +52,13 @@ unique = function( arr ){
 function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
-  uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)});
-  //getOnlyEnglishMovies(uniqueMovieObjects);
+  getOnlyEnglishMovies(uniqueMovieObjects);
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
 var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
 uniqueMovieObjects.map(function(movie){
-/*	var query='[{"type":"/film/film","language":[],"initial_release_date": null,"name":"'+movie.name+'"}]';
-	var url = service_url+query+apikey;
-	$.getJSON(url, function(response) {
- 		console.log(response);
- 		});
-	}*/
 	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
 	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
@@ -92,41 +85,3 @@ uniqueMovieObjects.map(function(movie){
  		}
  		});
 })}
-/*var movies = new Array();
-movies.push(uniqueMovieObjects[0]);
-movies.push(uniqueMovieObjects[2]);
-movies.push(uniqueMovieObjects[1]);
-movies.push(uniqueMovieObjects[3]);
-movies.push(uniqueMovieObjects[4]);
-movies.push(uniqueMovieObjects[10]);
-movies.push(uniqueMovieObjects[11]);
-movies.push(uniqueMovieObjects[12]);
-movies.push(uniqueMovieObjects[16]);
-
-movies.map(function(movie){
-	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
-	var url = service_url+query;
-	$.getJSON(url, function(response) {
- 		console.log(response.result);
- 		if(response.result.length>0){
- 		if(response.result[0].language[0]=="English Language"){
- 			englishMovies.push(movie)
-       			var name=movie.name;
-        		var picture_url = movie.picture.data.url;
-                	var link = movie.link
-                	var newDiv = document.createElement('div');
-                	newDiv.className="friendDiv col-md-1 col-xs-4"              
-                	var profileLink = document.createElement('a')
-                	profileLink.href=link;
-                	profileLink.target="_blank"
-                	var img = document.createElement('img');
-                	img.title=name;
-                	img.src=picture_url;
-                	img.className="img-responsive";
-               		profileLink.appendChild(img);
-                	newDiv.appendChild(profileLink);                       
-            		document.getElementById('friends').appendChild(newDiv);	
- 			};
- 		}
- 		});
-	})*/
