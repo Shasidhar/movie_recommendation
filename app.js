@@ -50,10 +50,9 @@ unique = function( arr ){
 };
 
 function populateMovies(){
-  console.log(allMovies[10].name);
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
-  console.log(uniqueMovieObjects);
+  uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)});
   //getOnlyEnglishMovies(uniqueMovieObjects);
 }
 
