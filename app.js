@@ -53,7 +53,8 @@ function populateMovies(){
   console.log(allMovies[10].name);
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
-  getOnlyEnglishMovies(uniqueMovieObjects);
+  console.log(uniqueMovieObjects);
+  //getOnlyEnglishMovies(uniqueMovieObjects);
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
