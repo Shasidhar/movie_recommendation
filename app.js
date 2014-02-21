@@ -52,7 +52,7 @@ unique = function( arr ){
 function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
-  //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)});
+  //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
   getOnlyEnglishMovies(uniqueMovieObjects);
 }
 
@@ -66,8 +66,8 @@ uniqueMovieObjects.map(function(movie){
  	
  		if(response.result.length>0){
  		if(response.result[0].language[0]=="English Language"){
- 			console.log(movie.name);
- 	/*		englishMovies.push(movie)
+ 			// console.log(movie.name); to print all english movies
+ 			englishMovies.push(movie)
        			var name=movie.name;
         		var picture_url = movie.picture.data.url;
                 	var link = movie.link
@@ -82,7 +82,7 @@ uniqueMovieObjects.map(function(movie){
                 	img.className="img-responsive";
                		profileLink.appendChild(img);
                 	newDiv.appendChild(profileLink);                       
-            		document.getElementById('friends').appendChild(newDiv);	*/
+            		document.getElementById('friends').appendChild(newDiv);	
  			};
  		}
  		});
