@@ -67,7 +67,7 @@ uniqueMovieObjects.map(function(movie){
  		});
 	}*/
 	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
-	var url = service_url+query;
+	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
  		console.log(response.result);
  		if(response.result.length>0){
