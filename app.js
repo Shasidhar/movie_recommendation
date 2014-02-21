@@ -91,9 +91,7 @@ uniqueMovieObjects.map(function(movie){
  			};
  		}
  		});
-	)
-}
-}
+})}
 /*var movies = new Array();
 movies.push(uniqueMovieObjects[0]);
 movies.push(uniqueMovieObjects[2]);
