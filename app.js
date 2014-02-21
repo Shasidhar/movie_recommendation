@@ -63,10 +63,11 @@ uniqueMovieObjects.map(function(movie){
 	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
 	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
- 		console.log(response.result.name);
- 	/*	if(response.result.length>0){
+ 	
+ 		if(response.result.length>0){
  		if(response.result[0].language[0]=="English Language"){
- 			englishMovies.push(movie)
+ 			console.log(movie.name);
+ 	/*		englishMovies.push(movie)
        			var name=movie.name;
         		var picture_url = movie.picture.data.url;
                 	var link = movie.link
