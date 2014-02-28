@@ -83,7 +83,7 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
             		document.getElementById('moviesforyou').appendChild(newDiv);	
  			};
  		});
-  getOnlyEnglishMovies(uniqueMovieObjects[0]);
+  getOnlyEnglishMovies(uniqueMovieObjects);
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
@@ -92,8 +92,8 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
 var message_span = document.getElementById('topMessageSpan');
 message_span.innerHTML="English movies liked by you and your friends"; 
 
-// uniqueMovieObjects.map(function(movie){
-var movie = uniqueMovieObjects;
+ uniqueMovieObjects.map(function(movie){
+// var movie = uniqueMovieObjects;
 	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
 	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
@@ -119,6 +119,4 @@ var movie = uniqueMovieObjects;
             		document.getElementById('friends').appendChild(newDiv);	
  			};
  		}
- 		});}
-
-// })}
+ 		})})}
