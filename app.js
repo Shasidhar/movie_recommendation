@@ -60,7 +60,8 @@ var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
 var message_span = document.getElementById('topMessageSpan');
 message_span.innerHTML="English movies liked by you and your friends"; 
-uniqueMovieObjects.map(function(movie){
+// uniqueMovieObjects.map(function(movie){
+var movie = uniqueMovieObjects;
 	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
 	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
@@ -87,4 +88,5 @@ uniqueMovieObjects.map(function(movie){
  			};
  		}
  		});
-})}
+
+// })}
