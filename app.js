@@ -51,7 +51,7 @@ unique = function( arr ){
 function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
-  console.log(uniqueMovieObjects[2)
+  console.log(uniqueMovieObjects[2])
   //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
   var message_span = document.getElementById('recommendationSpan');
   message_span.innerHTML="English Movie Recommendations for you";
