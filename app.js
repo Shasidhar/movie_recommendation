@@ -52,7 +52,7 @@ function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
   //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
-  var message_span = document.getElementById('topMessageSpan');
+  var message_span = document.getElementById('recommendationSpan');
   message_span.innerHTML="English Movie Recommendations for you";
   movie = uniqueMovieObjects[100];
   var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
@@ -79,7 +79,7 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
                 	img.className="img-responsive";
                		profileLink.appendChild(img);
                 	newDiv.appendChild(profileLink);                       
-            		document.getElementById('friends').appendChild(newDiv);	
+            		document.getElementById('moviesforyou').appendChild(newDiv);	
  			};
  		}
  		});
