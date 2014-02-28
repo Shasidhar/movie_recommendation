@@ -83,7 +83,7 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
             		document.getElementById('friends').appendChild(newDiv);	
  			};
  		});
-  //getOnlyEnglishMovies(uniqueMovieObjects[0]);
+  getOnlyEnglishMovies(uniqueMovieObjects[0]);
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
