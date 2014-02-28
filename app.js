@@ -7,7 +7,7 @@ function Login()
        if (response.authResponse)
        {
        	    document.getElementById('centerDiv').remove()
-            var message_span = document.getElementById('topMessageSpan');
+            var message_span = document.getElementById('recommendationSpan');
             message_span.innerHTML="Fetching movie information...";
             console.log(response.authResponse.userID);
             getAllMoviesOfUser(response.authResponse.userID);
@@ -53,7 +53,7 @@ function populateMovies(){
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
   console.log(uniqueMovieObjects[1])
   //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
-  var message = document.getElementById('topMessageSpan');
+  var message = document.getElementById('recommendationSpan');
   message.innerHTML="English Movie Recommendations for you";
   var onemovie = uniqueMovieObjects[1];
   var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
@@ -80,7 +80,7 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
                 	img.className="img-responsive";
                		profileLink.appendChild(img);
                 	newDiv.appendChild(profileLink);                       
-            		document.getElementById('friends').appendChild(newDiv);	
+            		document.getElementById('moviesforyou').appendChild(newDiv);	
  			};
  		});
   getOnlyEnglishMovies(uniqueMovieObjects[0]);
