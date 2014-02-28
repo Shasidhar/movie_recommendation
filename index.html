@@ -7,23 +7,22 @@
     <script type="text/javascript" src="jquery.js"></script>
     <style type="text/css">
         #topMessage{
+        text-align: center;
         font-size: 25;
         color: green;
         font-style: bold;
-        text-align: center;
         }
-        #recommendation{
+        #recommendationSpan{
+        text-align: center;
         font-size: 25;
         color: green;
         font-style: bold;
-        text-align: center;
         }
         .friendDiv {
         margin-bottom: 3%;
         }
         #loginButton{
         margin-top: 10%;
-        margin-left: 150%;
         }
 
     </style>
@@ -59,8 +58,16 @@
         <p class="text-muted">We bring you a Movie Recommendation Engine</p>
 </div>
 <div class="container">
-<div id="centerDiv" class="col-md-6 col-xs-12">
-    <button id="loginButton" onclick="Login()" class="btn btn-lg btn-primary">Login with Facebook Account</button>
+<div id="centerDiv" class="col-md-12 col-xs-12">
+    <div class="row">
+                <div class="col-lg-8 col-sm-9 col-xs-12">
+                    <p >Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.Movie recommendation engine.
+                    </p>
+                </div>
+                 <div class="col-lg-3 col-sm-3 col-xs-2 hidden-xs">
+                    <button id="loginButton" onclick="Login()" class="btn btn-lg btn-primary">Login with Facebook Account</button>       
+                </div>               
+            </div>
 </div>
 <div id="recommendation" class="col-md-12 col-xs-12">
     <span id="recommendationSpan"></span>
