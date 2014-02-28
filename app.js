@@ -70,10 +70,10 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
         		var picture_url = onemovie.picture.data.url;
                 	var link = onemovie.link
                 	var newDiv = document.createElement('div');
-                	newDiv.className="friendDiv col-md-1 col-xs-4"              
-                	var profileLink = document.createElement('a')
+                	newDiv.className="friendDiv col-md-1 col-xs-4";              
+                	var profileLink = document.createElement('a');
                 	profileLink.href=link;
-                	profileLink.target="_blank"
+                	profileLink.target="_blank";
                 	var img = document.createElement('img');
                 	img.title=name;
                 	img.src=picture_url;
@@ -82,7 +82,6 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
                 	newDiv.appendChild(profileLink);                       
             		document.getElementById('friends').appendChild(newDiv);	
  			};
- 		}
  		});
   //getOnlyEnglishMovies(uniqueMovieObjects[0]);
 }
