@@ -52,7 +52,7 @@ function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
   //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
-  getOnlyEnglishMovies(uniqueMovieObjects);
+  getOnlyEnglishMovies(uniqueMovieObjects[0]);
 }
 
 function getOnlyEnglishMovies(uniqueMovieObjects){
