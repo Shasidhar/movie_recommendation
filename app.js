@@ -52,6 +52,35 @@ function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
   //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
+  var message_span = document.getElementById('topMessageSpan');
+  message_span.innerHTML="English Movie Recommendations for you";
+  movie = uniqueMovieObjects[100];
+  var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
+	var url = service_url+query+apikey;
+	$.getJSON(url, function(response) {
+ 	
+ 		if(response.result.length>0){
+ 		if(response.result[0].language[0]=="English Language"){
+ 			// console.log(movie.name); to print all english movies
+ 			englishMovies.push(movie)
+       			var name=movie.name;
+        		var picture_url = movie.picture.data.url;
+                	var link = movie.link
+                	var newDiv = document.createElement('div');
+                	newDiv.className="friendDiv col-md-1 col-xs-4"              
+                	var profileLink = document.createElement('a')
+                	profileLink.href=link;
+                	profileLink.target="_blank"
+                	var img = document.createElement('img');
+                	img.title=name;
+                	img.src=picture_url;
+                	img.className="img-responsive";
+               		profileLink.appendChild(img);
+                	newDiv.appendChild(profileLink);                       
+            		document.getElementById('friends').appendChild(newDiv);	
+ 			};
+ 		}
+ 		});
   getOnlyEnglishMovies(uniqueMovieObjects[0]);
 }
 
@@ -60,6 +89,7 @@ var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
 var message_span = document.getElementById('topMessageSpan');
 message_span.innerHTML="English movies liked by you and your friends"; 
+
 // uniqueMovieObjects.map(function(movie){
 var movie = uniqueMovieObjects;
 	var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+movie.name+'"}]';
