@@ -51,18 +51,18 @@ unique = function( arr ){
 function populateMovies(){
   var uniqueMovies = unique(allMovies);
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
-  console.log(uniqueMovieObjects[2])
+  console.log(uniqueMovieObjects[1])
   //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
   var message = document.getElementById('topMessageSpan');
   message.innerHTML="English Movie Recommendations for you";
-  var onemovie = uniqueMovieObjects[2];
+  var onemovie = uniqueMovieObjects[1];
   var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
   var query='[{"type":"/film/film","language":[],"initial_release_date": {"optional": false,"value": null},"sort": "-initial_release_date.value","name":"'+onemovie.name+'"}]';
 	var url = service_url+query+apikey;
 	$.getJSON(url, function(response) {
  	
- 		if(response.result.length>0){
+ 		if(response.result.length>0)
  		if(response.result[0].language[0]=="English Language"){
  			// console.log(movie.name); to print all english movies
  			englishMovies.push(onemovie)
