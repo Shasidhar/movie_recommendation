@@ -6,8 +6,7 @@ function Login()
     FB.login(function(response) {
        if (response.authResponse)
        {
-            var loginButton = document.getElementById('loginButton');
-            loginButton.parentNode.removeChild(loginButton);
+       	    document.getElementById('centerDiv').remove()
             var message_span = document.getElementById('topMessageSpan');
             message_span.innerHTML="Fetching movie information...";
             console.log(response.authResponse.userID);
