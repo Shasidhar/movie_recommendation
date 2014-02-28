@@ -32,7 +32,7 @@ function getAllMoviesOfUserFriends(id) {
   FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture.width(100).height(100))',null,null, function(response) {
     var totalCount = 0;
     for(i=0;i<response.data.length;i++){
-     if(response.data[i].movies!=undefined){
+     if(response.data[i].movies!=undefirined){
          var userMovies = response.data[i].movies;
           for(j=0;j<userMovies.data.length;j++){
             allMovies.push(userMovies.data[j]);
@@ -53,8 +53,8 @@ function populateMovies(){
   var uniqueMovieObjects = uniqueMovies.map(function(obj) { return JSON.parse(obj)});
   console.log(uniqueMovieObjects[2])
   //uniqueMovieObjects.map(function(obj){console.log(obj.name+","+obj.id)}); to print all unique movies
-  var message_span = document.getElementById('recommendationSpan');
-  message_span.innerHTML="English Movie Recommendations for you";
+  var message = document.getElementById('topMessageSpan');
+  messag.innerHTML="English Movie Recommendations for you";
   var onemovie = uniqueMovieObjects[2];
   var apikey='&key=AIzaSyACjBHSkJ5s1PlmO_WWclZ2J6IrLLOQplM';
 var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
