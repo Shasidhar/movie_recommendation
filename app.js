@@ -87,6 +87,6 @@ var movie = uniqueMovieObjects;
             		document.getElementById('friends').appendChild(newDiv);	
  			};
  		}
- 		});
+ 		});}
 
 // })}
