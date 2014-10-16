@@ -26,6 +26,7 @@ function getAllMoviesOfUser(id) {
       var movie = response.data[i];
             allMovies.push(movie);
      }
+      populateMovies();
   })}
 
 function getAllMoviesOfUserFriends(id) {
