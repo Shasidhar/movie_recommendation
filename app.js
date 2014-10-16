@@ -68,7 +68,7 @@ var service_url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
  			// console.log(movie.name); to print all english movies
  			englishMovies.push(onemovie)
        			var name=onemovie.name;
-        		var picture_url = onemovie.link;
+        		var picture_url = "http://musictechstudent.co.uk/wp-content/uploads/2013/05/placeholder-100x100.png";
                 	var link = onemovie.link
                 	var newDiv = document.createElement('div');
                 	newDiv.className="friendDiv col-md-1 col-xs-4";              
