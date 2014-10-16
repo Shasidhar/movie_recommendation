@@ -26,7 +26,7 @@ function getAllMoviesOfUser(id) {
       var movie = response.data[i];
             allMovies.push(movie);
      }
-      //populateMovies();
+      populateMovies();
   })}
 
 function getAllMoviesOfUserFriends(id) {
@@ -40,7 +40,7 @@ function getAllMoviesOfUserFriends(id) {
           }
         }  
        }
-       populateMovies();
+       //populateMovies();
 })
 }
 unique = function( arr ){
