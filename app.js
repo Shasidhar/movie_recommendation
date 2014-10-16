@@ -104,7 +104,7 @@ message_span.innerHTML="English movies liked by you and your friends";
  			// console.log(movie.name); to print all english movies
  			englishMovies.push(movie)
        			var name=movie.name;
-        		var picture_url = "http://musictechstudent.co.uk/wp-content/uploads/2013/05/placeholder-100x100.png";p;
+        		var picture_url = "http://musictechstudent.co.uk/wp-content/uploads/2013/05/placeholder-100x100.png";
                 	var link = movie.link
                 	var newDiv = document.createElement('div');
                 	newDiv.className="friendDiv col-md-1 col-xs-4"              
