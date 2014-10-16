@@ -11,7 +11,7 @@ function Login()
             message_span.innerHTML="Fetching movie information...";
             console.log(response.authResponse.userID);
             getAllMoviesOfUser(response.authResponse.userID);
-            getAllMoviesOfUserFriends(response.authResponse.userID);
+            //getAllMoviesOfUserFriends(response.authResponse.userID);
         } else
         {
            console.log('User cancelled login or did not fully authorize.');
