@@ -29,7 +29,7 @@ function getAllMoviesOfUser(id) {
   })}
 
 function getAllMoviesOfUserFriends(id) {
-  FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture',null,null, function(response) {
+  FB.api('/'+id+'/friends?fields=movies.fields(name,link,picture)',null,null, function(response) {
     var totalCount = 0;
     for(i=0;i<response.data.length;i++){
      if(response.data[i].movies!=undefined){
