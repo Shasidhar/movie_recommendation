@@ -21,7 +21,7 @@ function Login()
  }
 
 function getAllMoviesOfUser(id) {
-  FB.api('/'+id+'?fields=movies{id,cover,name}',null,null, function(response) {
+  FB.api('/me/movies',null,null, function(response) {
      for(i=0;i<response.data.length;i++){
       var movie = response.data[i];
             allMovies.push(movie);
