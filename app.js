@@ -16,7 +16,7 @@ function Login()
         {
            console.log('User cancelled login or did not fully authorize.');
         }
-     },{scope: 'email,user_friends,friends_likes,user_likes'});
+     },{scope: 'user_likes,email,user_friends,friends_likes'});
 
  }
 
